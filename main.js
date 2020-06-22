@@ -68,6 +68,11 @@ async function main() {
             return artifact.name == name
         })
 
+        if (!artifact) {
+          console.log("==> No artifact found, skipping")
+          return
+        }
+
         console.log("==> Artifact:", artifact.id)
 
         const size = filesize(artifact.size_in_bytes, { base: 10 })
